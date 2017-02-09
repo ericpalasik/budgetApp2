@@ -3,25 +3,37 @@ import { CategoriesService } from '../categories/categories.service';
 import { ExpensesService } from '../expenses/expenses.service';
 
 @Component({
+  moduleId: module.id,
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [ CategoriesService, ExpensesService ]
+  providers: []
 })
 export class HomeComponent implements OnInit {
   categories: string[];
   expenses: expense[];
   totalAmountSpent: number;
 
-  constructor(private categoriesService: CategoriesService,
-              private expensesService: ExpensesService) {
-    this.categories = categoriesService.getCategories();
-    this.expenses = expensesService.getExpenses();
-    this.totalAmountSpent = expensesService.getTotalExpenses();
+  constructor(
+    private categoriesService: CategoriesService,
+    private expensesService: ExpensesService) { }
+
+   getCategories(): void {
+     this.categoriesService.getCategories().then(categories => this.categories = categories);
    }
 
-  ngOnInit() {
+   getExpenses(): void {
+    this.expensesService.getExpenses().then(expenses => this.expenses = expenses);
+   }
 
+   getTotalExpenses(): void {
+    this.expensesService.getTotalExpenses().then(total => this.totalAmountSpent = total);
+   }
+
+  ngOnInit(): void {
+    this.getCategories();
+    this.getExpenses();
+    this.getTotalExpenses();
   }
 
 }

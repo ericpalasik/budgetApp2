@@ -5,9 +5,12 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { routing } from './app.routing';
 import { ExpensesComponent } from './expenses/expenses.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { CategoriesService } from './categories/categories.service';
+import { ExpensesService } from './expenses/expenses.service';
+
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,9 +23,9 @@ import { CategoriesComponent } from './categories/categories.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [ CategoriesService, ExpensesService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

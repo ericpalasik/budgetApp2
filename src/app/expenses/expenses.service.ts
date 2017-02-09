@@ -24,20 +24,20 @@ export class ExpensesService {
     ]
   }
 
-  getExpenses() {
-    return this.expenses;
+  getExpenses(): Promise<expense[]> {
+    return Promise.resolve(this.expenses);
   }
 
   addExpense(expense: expense) {
     this.expenses.push(expense);
   }
 
-  getTotalExpenses() {
+  getTotalExpenses(): Promise<number> {
     let total = 0;
     for (let expense of this.expenses) {
       total += expense.amount;
     }
-    return total;
+    return Promise.resolve(total);
   }
 
 }

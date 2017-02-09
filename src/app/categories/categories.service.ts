@@ -6,7 +6,6 @@ export class CategoriesService {
 
 
   constructor() {
-    console.log('Categories Service');
     this.categories = [
       'home',
       'car',
@@ -16,11 +15,11 @@ export class CategoriesService {
     ];
   }
 
-  getCategories() {
-    return this.categories;
+  getCategories(): Promise<string[]> {
+    return Promise.resolve(this.categories);
   }
 
-  addCategories(category: string) {
+  addCategories(category: string): void {
     this.categories.push(category);
   }
 
