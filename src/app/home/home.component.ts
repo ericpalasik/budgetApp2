@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../categories/category.service';
-import { ExpensesService } from '../expenses/expenses.service';
 
 @Component({
   moduleId: module.id,
@@ -14,21 +13,12 @@ export class HomeComponent implements OnInit {
   expenses: expense[];
   totalAmountSpent: number;
 
-  constructor(
-    private categoriesService: CategoryService,
-    private expensesService: ExpensesService) { }
+  constructor(private categoriesService: CategoryService) { }
 
-   getExpenses(): void {
-    this.expensesService.getExpenses().then(expenses => this.expenses = expenses);
-   }
-
-   getTotalExpenses(): void {
-    this.expensesService.getTotalExpenses().then(total => this.totalAmountSpent = total);
-   }
 
   ngOnInit(): void {
-    this.getExpenses();
-    this.getTotalExpenses();
+    // this.getExpenses();
+    // this.getTotalExpenses();
   }
 
 }

@@ -11,10 +11,8 @@ import { CategoryEffects } from './categories/category.effects';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { ExpensesComponent } from './expenses/expenses.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryService } from './categories/category.service';
-import { ExpensesService } from './expenses/expenses.service';
 import { CategoryActions } from './categories/category-actions';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,7 +21,6 @@ import { AppRoutingModule } from './app-routing.module';
   declarations: [
     AppComponent,
     HomeComponent,
-    ExpensesComponent,
     CategoriesComponent
   ],
   imports: [
@@ -34,7 +31,7 @@ import { AppRoutingModule } from './app-routing.module';
     StoreModule.provideStore(reducer),
     EffectsModule.run(CategoryEffects)
   ],
-  providers: [ CategoryService, ExpensesService, CategoryActions ],
+  providers: [ CategoryService, CategoryActions ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

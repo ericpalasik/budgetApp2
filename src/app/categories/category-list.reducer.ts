@@ -4,7 +4,7 @@ import { CategoryActions } from '../categories/category-actions'
 
 export type CategoryListState = Category[];
 
-const initialState: CategoryListState = [];
+const initialState: CategoryListState = [{id: 0, name: 'hello'}];
 
 export default function (state = initialState, action: Action): CategoryListState {
     switch(action.type) {
