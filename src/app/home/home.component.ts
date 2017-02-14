@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoriesService } from '../categories/categories.service';
+import { CategoryService } from '../categories/category.service';
 import { ExpensesService } from '../expenses/expenses.service';
 
 @Component({
@@ -15,12 +15,8 @@ export class HomeComponent implements OnInit {
   totalAmountSpent: number;
 
   constructor(
-    private categoriesService: CategoriesService,
+    private categoriesService: CategoryService,
     private expensesService: ExpensesService) { }
-
-   getCategories(): void {
-     this.categoriesService.getCategories().then(categories => this.categories = categories);
-   }
 
    getExpenses(): void {
     this.expensesService.getExpenses().then(expenses => this.expenses = expenses);
@@ -31,7 +27,6 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.getCategories();
     this.getExpenses();
     this.getTotalExpenses();
   }

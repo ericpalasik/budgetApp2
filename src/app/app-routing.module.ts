@@ -8,15 +8,11 @@ import { CategoriesComponent } from './categories/categories.component';
 
 const routes: Routes = [
     {
-        path: '',
-        component: HomeComponent
-    },
-    {
         path: 'expenses/add',
         component: ExpensesComponent
     },
     {
-        path: 'categories/add',
+        path: '',
         component: CategoriesComponent
     }
 ];
