@@ -19,7 +19,9 @@ export class CategoryService {
     }
 
     addCategory(category) {
-        return this.http.post('http://localhost:3000/posts', category.id)
+        console.log(category.name);
+        console.log(category.id);
+        return this.http.post('http://localhost:3000/posts', category)
         .map(res => res.json());
     }
 

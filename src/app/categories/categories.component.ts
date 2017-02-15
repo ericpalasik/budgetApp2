@@ -30,6 +30,8 @@ export class Categories implements OnInit {
   }
 
   save(category) {
+    console.log(category.name);
+    console.log(category.id);
     this.store.dispatch(this.categoryActions.addCategory(category));
   }
 
