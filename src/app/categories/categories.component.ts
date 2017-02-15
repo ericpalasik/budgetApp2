@@ -1,18 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
-import { AppState } from '../reducers/index';
-import { CategoryActions } from './category-actions';
+import { AppState } from '../store';
+import { CategoryActions } from '../store/categories/actions';
 import { Observable } from 'rxjs/Observable';
 
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   moduleId: module.id,
   selector: 'app-categories',
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.css']
 })
-export class CategoriesComponent implements OnInit {
+export class Categories implements OnInit {
   categories: Observable<any>;
 
   constructor(
@@ -24,7 +25,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    this.store.dispatch(this.categoryActions.loadCategories());
   }
 
 }

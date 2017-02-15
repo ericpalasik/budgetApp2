@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Action } from '@ngrx/store';
 
-import { Category } from './category';
+import { Category } from '../../categories/category';
 
 @Injectable()
 export class CategoryActions {

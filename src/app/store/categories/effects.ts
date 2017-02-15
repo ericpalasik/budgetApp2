@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Effect, Actions } from '@ngrx/effects';
 
-import { AppState } from '../reducers/index';
-import { CategoryActions } from '../categories/category-actions';
-import { CategoryService } from './category.service';
+import { AppState } from '../index';
+import { CategoryActions } from './actions';
+import { CategoryService } from '../../categories/category.service';
 import 'rxjs/add/operator/switchMap';
 
 @Injectable()

@@ -1,14 +1,14 @@
 import { combineReducers } from '@ngrx/store';
 import { compose } from '@ngrx/core';
-import categoryListReducer, * as fromCategoryList from '../categories/category-list.reducer';
-import categoryReducer, * as fromCategory from '../categories/category.reducer';
+import categoryListReducer, * as fromCategoryList from './categories/reducer';
+import { routerReducer, RouterState } from '@ngrx/router-store';
 
 export interface AppState {
     categories: fromCategoryList.CategoryListState;
-    category: fromCategory.CategoryState;
+    router: RouterState;
 }
 
 export default compose(combineReducers)({
     categories: categoryListReducer,
-    category: categoryReducer
+    router: routerReducer
 })

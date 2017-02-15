@@ -1,10 +1,10 @@
 import { ActionReducer, Action } from '@ngrx/store';
-import { Category } from '../categories/category';
-import { CategoryActions } from '../categories/category-actions'
+import { Category } from '../../categories/category';
+import { CategoryActions } from './actions'
 
 export type CategoryListState = Category[];
 
-const initialState: CategoryListState = [{id: 0, name: 'hello'}];
+const initialState: CategoryListState = [{id: 0, name: 'initialCategory'}];
 
 export default function (state = initialState, action: Action): CategoryListState {
     switch(action.type) {

@@ -9,22 +9,22 @@ export class CategoryService {
     constructor(private http: Http) {}
 
     getCategories(): Observable<Category[]> {
-        return this.http.get('/api/categories')
+        return this.http.get('http://localhost:3000/posts')
         .map(res => res.json());
     }
 
     getCategory(id): Observable<Category> {
-        return this.http.get('api/categories' + id)
+        return this.http.get('http://localhost:3000/posts' + id)
         .map(res => res.json());
     }
 
     addCategory(category) {
-        return this.http.post('api/categories', category.id)
+        return this.http.post('http://localhost:3000/posts', category.id)
         .map(res => res.json());
     }
 
     deleteCategory(category) {
-        return this.http.delete('/api/categories' + category.id)
+        return this.http.delete('http://localhost:3000/posts' + category.id)
         .map(res => category);
     }
 }
