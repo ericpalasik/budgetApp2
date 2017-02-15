@@ -1,0 +1,9 @@
+<div>
+    <label>id: </label>
+    <input [(ngModel)]="category.id" placeholder="id"/>
+</div>
+<div>
+    <label>Category: </label>
+    <input [(ngModel)]="category.name" placeholder="category"/>
+</div>
+<button (click)="save.emit(category)">Save</button>

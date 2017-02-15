@@ -2,3 +2,4 @@
 <div *ngFor="let category of categories | async">
   {{category.name}}
 </div>
+<category-form (save)="save($event)"></category-form>

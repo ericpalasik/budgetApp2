@@ -20,9 +20,9 @@ export class CategoryEffects {
         .map(categories => this.categoryActions.loadCategoriesSuccess(categories));
 
     @Effect() addCategory = this.update$
-    .ofType(CategoryActions.ADD_CATEGORY)
-    .map(action => action.payload)
-    .switchMap(category => this.categoryService.addCategory(category))
-    .map(category => this.categoryActions.addCategorySuccess(category));
+        .ofType(CategoryActions.ADD_CATEGORY)
+        .map(action => action.payload)
+        .switchMap(category => this.categoryService.addCategory(category))
+        .map(category => this.categoryActions.addCategorySuccess(category));
 
 }

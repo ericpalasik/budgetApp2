@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AppState } from '../store';
 import { CategoryActions } from '../store/categories/actions';
 import { Observable } from 'rxjs/Observable';
+import { CategoriesModule } from './';
 
 
 @Component({
@@ -26,6 +27,10 @@ export class Categories implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(this.categoryActions.loadCategories());
+  }
+
+  save(category) {
+    this.store.dispatch(this.categoryActions.addCategory(category));
   }
 
 }
