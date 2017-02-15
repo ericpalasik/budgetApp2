@@ -3,7 +3,7 @@ import { Effect, Actions } from '@ngrx/effects';
 
 import { AppState } from '../index';
 import { CategoryActions } from './actions';
-import { CategoryService } from '../../categories/category.service';
+import { CategoryService } from '../../services/category';
 import 'rxjs/add/operator/switchMap';
 
 @Injectable()

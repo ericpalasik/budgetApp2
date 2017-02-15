@@ -1,6 +1,6 @@
 import { ActionReducer, Action } from '@ngrx/store';
-import { Category } from '../../categories/category';
-import { CategoryActions } from './actions'
+import { Category } from '.';
+import { CategoryActions } from '.'
 
 export type CategoryListState = Category[];
 

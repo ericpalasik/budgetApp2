@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { Categories } from './categories/categories.component';
+import { Category } from './pages/category';
 
 const routes: Routes = [
     {
         path: '',
-        component: Categories
+        component: Category
     }
 ];
 

@@ -4,24 +4,28 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { Action, StoreModule } from '@ngrx/store';
-import { AppState } from './store';
-import reducer from './store';
 import { EffectsModule } from '@ngrx/effects';
-import { CategoryEffects } from './store/categories/effects';
+import { RouterStoreModule } from '@ngrx/router-store';
 
-import { AppComponent } from './app.component';
-import { CategoriesModule } from './categories';
-import { CategoryService } from './categories/category.service';
-import { CategoryActions } from './store/categories/actions';
-
+import { AppComponent } from './components/app';
 import { AppRoutingModule } from './app-routing.module';
 
-import { RouterStoreModule } from '@ngrx/router-store';
+import { AppState } from './shared/store';
+import reducer from './shared/store';
+
+import { CategoryActions } from './shared/store/category';
+import { CategoryEffects } from './shared/store/category';
+import { CategoryService } from './shared/services/category';
+
+import { Category } from './pages/category';
+import { CategoryForm } from './components/category-form';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    Category,
+    CategoryForm
   ],
   imports: [
     BrowserModule,
@@ -30,8 +34,7 @@ import { RouterStoreModule } from '@ngrx/router-store';
     AppRoutingModule,
     StoreModule.provideStore(reducer),
     EffectsModule.run(CategoryEffects),
-    RouterStoreModule.connectRouter(),
-    CategoriesModule
+    RouterStoreModule.connectRouter()
   ],
   providers: [ CategoryService, CategoryActions ],
   bootstrap: [AppComponent]

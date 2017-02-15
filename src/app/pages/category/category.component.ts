@@ -1,20 +1,20 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
-import { AppState } from '../store';
-import { CategoryActions } from '../store/categories/actions';
+import { AppState } from '../../shared/store';
+import { CategoryActions } from '../../shared/store/category';
 import { Observable } from 'rxjs/Observable';
-import { CategoriesModule } from './';
+import { CategoryForm } from '../../components/category-form';
 
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   moduleId: module.id,
   selector: 'app-categories',
-  templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.css']
+  templateUrl: './category.component.html',
+  styleUrls: ['./category.component.css']
 })
-export class Categories implements OnInit {
+export class Category implements OnInit {
   categories: Observable<any>;
 
   constructor(
