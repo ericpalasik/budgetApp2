@@ -25,4 +25,11 @@ export class CategoryEffects {
         .switchMap(category => this.categoryService.addCategory(category))
         .map(category => this.categoryActions.addCategorySuccess(category));
 
+    @Effect() deleteCategory$ = this.update$
+        .ofType(CategoryActions.DELETE_CATEGORY)
+        .map(action => action.payload)
+        .switchMap(category => this.categoryService.deleteCategory(category))
+        .map(category => this.categoryActions.deleteCategorySuccess(category));
+    
+
 }

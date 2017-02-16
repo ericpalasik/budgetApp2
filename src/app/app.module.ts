@@ -18,14 +18,16 @@ import { CategoryEffects } from './shared/store/category';
 import { CategoryService } from './shared/services/category';
 
 import { Category } from './pages/category';
-import { CategoryForm } from './components/category-form';
+import { CategoryForm } from './components';
+import { CategoryList } from './components';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     Category,
-    CategoryForm
+    CategoryForm,
+    CategoryList
   ],
   imports: [
     BrowserModule,

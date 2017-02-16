@@ -35,4 +35,10 @@ export class Category implements OnInit {
     this.store.dispatch(this.categoryActions.addCategory(category));
   }
 
+  delete(category) {
+    console.log(category.name);
+    console.log(category.id);
+    this.store.dispatch(this.categoryActions.deleteCategory(category));
+  }
+
 }

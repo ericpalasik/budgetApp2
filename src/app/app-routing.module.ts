@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { Category } from './pages/category';
+import { Category } from './pages';
 
 const routes: Routes = [
     {

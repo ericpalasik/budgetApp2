@@ -1,0 +1,4 @@
+<div *ngFor="let category of categories | async">
+  {{category.name}}
+  <button (click)="delete.emit(category)">X</button>
+</div>

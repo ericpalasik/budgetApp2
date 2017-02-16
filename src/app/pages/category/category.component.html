@@ -1,5 +1,9 @@
 <h1>Categories</h1>
-<div *ngFor="let category of categories | async">
-  {{category.name}}
+
+<div>
+  <category-list [categories]="categories" (delete)="delete($event)"></category-list>
 </div>
-<category-form (save)="save($event)"></category-form>
+
+<div>
+  <category-form (save)="save($event)"></category-form>
+</div>

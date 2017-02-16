@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Category } from './category';
+import { Category } from '../../store/category';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
@@ -19,14 +19,12 @@ export class CategoryService {
     }
 
     addCategory(category) {
-        console.log(category.name);
-        console.log(category.id);
         return this.http.post('http://localhost:3000/posts', category)
         .map(res => res.json());
     }
 
     deleteCategory(category) {
-        return this.http.delete('http://localhost:3000/posts' + category.id)
+        return this.http.delete('http://localhost:3000/posts/' + category.id)
         .map(res => category);
     }
 }
