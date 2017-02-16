@@ -21,13 +21,20 @@ import { Category } from './pages/category';
 import { CategoryForm } from './components';
 import { CategoryList } from './components';
 
+import { ExpenseActions } from './shared/store/expense';
+import { ExpenseEffects } from './shared/store/expense';
+import { ExpenseService } from './shared/services/expense';
+
+import { Expense } from './pages/expense';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     Category,
     CategoryForm,
-    CategoryList
+    CategoryList,
+    Expense
   ],
   imports: [
     BrowserModule,
@@ -36,9 +43,10 @@ import { CategoryList } from './components';
     AppRoutingModule,
     StoreModule.provideStore(reducer),
     EffectsModule.run(CategoryEffects),
+    EffectsModule.run(ExpenseEffects),
     RouterStoreModule.connectRouter()
   ],
-  providers: [ CategoryService, CategoryActions ],
+  providers: [ CategoryService, CategoryActions, ExpenseService, ExpenseActions ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

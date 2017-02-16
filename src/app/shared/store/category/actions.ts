@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Action } from '@ngrx/store';
 
-import { Category } from '../../categories/category';
-
 @Injectable()
 export class CategoryActions {
     static LOAD_CATEGORIES = '[Category] Load Categories';

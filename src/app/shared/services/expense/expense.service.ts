@@ -1,30 +1,30 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Category } from '../../store/category';
+import { Expense } from '../../store/expense';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class CategoryService {
+export class ExpenseService {
     constructor(private http: Http) {}
 
-    getCategories(): Observable<Category[]> {
+    getExpenses(): Observable<Expense[]> {
         return this.http.get('http://localhost:3000/posts')
         .map(res => res.json());
     }
 
-    getCategory(id): Observable<Category> {
+    getExpense(id): Observable<Expense> {
         return this.http.get('http://localhost:3000/posts/' + id)
         .map(res => res.json());
     }
 
-    addCategory(category) {
-        return this.http.post('http://localhost:3000/posts', category)
+    addExpense(expense) {
+        return this.http.get('http://localhost:3000/posts', expense)
         .map(res => res.json());
     }
 
-    deleteCategory(category) {
-        return this.http.delete('http://localhost:3000/posts/' + category.id)
-        .map(res => category);
+    deleteExpense(expense) {
+        return this.http.get('http://localhost:3000/posts/' + expense.id)
+        .map(res => expense);
     }
 }

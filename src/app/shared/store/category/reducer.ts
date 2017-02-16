@@ -16,7 +16,7 @@ export default function (state = initialState, action: Action): CategoryListStat
         }
         case CategoryActions.DELETE_CATEGORY_SUCCESS: {
             return state.filter(category => {
-                return category.id !== action.payload.id
+                return category.id !== action.payload.id;
             })
         }
         default: {
