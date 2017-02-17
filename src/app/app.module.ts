@@ -27,6 +27,8 @@ import { ExpenseService } from './shared/services/expense';
 
 import { Expense } from './pages/expense';
 
+import { Budget } from './pages/budget';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { Expense } from './pages/expense';
     Category,
     CategoryForm,
     CategoryList,
-    Expense
+    Expense,
+    Budget
   ],
   imports: [
     BrowserModule,

@@ -2,21 +2,21 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { AppState } from '../../shared/store';
-import { CategoryActions } from '../../shared/store/category';
 import { Observable } from 'rxjs/Observable';
-import { CategoryForm } from '../../components/category-form';
 
 import { go } from '@ngrx/router-store';
+
+import { CategoryActions, Category } from '../../shared/store/category';
 
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   moduleId: module.id,
-  selector: 'app-categories',
-  templateUrl: './category.component.html',
-  styleUrls: ['./category.component.css']
+  selector: 'app-budget',
+  templateUrl: './budget.component.html',
+  styleUrls: ['./budget.component.css']
 })
-export class Category implements OnInit {
+export class Budget implements OnInit {
   categories: Observable<any>;
 
   constructor(
@@ -37,6 +37,14 @@ export class Category implements OnInit {
 
   delete(category) {
     this.store.dispatch(this.categoryActions.deleteCategory(category));
+  }
+
+  goToCategory() {
+    this.store.dispatch(go(['/category']));
+  }
+
+  goToExpense() {
+    this.store.dispatch(go(['/expense']));
   }
 
 }
