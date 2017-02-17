@@ -8,10 +8,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { RouterStoreModule } from '@ngrx/router-store';
 
 import { AppComponent } from './components/app';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app.routes.module';
 
 import { AppState } from './shared/store';
-import reducer from './shared/store';
+import router from './shared/store';
 
 import { CategoryActions } from './shared/store/category';
 import { CategoryEffects } from './shared/store/category';
@@ -41,7 +41,7 @@ import { Expense } from './pages/expense';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    StoreModule.provideStore(reducer),
+    StoreModule.provideStore(router),
     EffectsModule.run(CategoryEffects),
     EffectsModule.run(ExpenseEffects),
     RouterStoreModule.connectRouter()

@@ -6,6 +6,8 @@ import { CategoryActions } from '../../shared/store/category';
 import { Observable } from 'rxjs/Observable';
 import { CategoryForm } from '../../components/category-form';
 
+import { go } from '@ngrx/router-store';
+
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -30,15 +32,15 @@ export class Category implements OnInit {
   }
 
   save(category) {
-    console.log(category.name);
-    console.log(category.id);
     this.store.dispatch(this.categoryActions.addCategory(category));
   }
 
   delete(category) {
-    console.log(category.name);
-    console.log(category.id);
     this.store.dispatch(this.categoryActions.deleteCategory(category));
+  }
+
+  goToExpenses() {
+    this.store.dispatch(go(['/expense']));
   }
 
 }
